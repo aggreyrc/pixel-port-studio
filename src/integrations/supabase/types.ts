@@ -14,7 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      projects: {
+        Row: {
+          created_at: string
+          demo_url: string | null
+          description: string | null
+          featured: boolean | null
+          forks_count: number | null
+          full_name: string
+          github_id: number
+          homepage: string | null
+          html_url: string
+          id: string
+          language: string | null
+          name: string
+          pushed_at: string | null
+          stargazers_count: number | null
+          tech_stack: string[] | null
+          topics: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          demo_url?: string | null
+          description?: string | null
+          featured?: boolean | null
+          forks_count?: number | null
+          full_name: string
+          github_id: number
+          homepage?: string | null
+          html_url: string
+          id?: string
+          language?: string | null
+          name: string
+          pushed_at?: string | null
+          stargazers_count?: number | null
+          tech_stack?: string[] | null
+          topics?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          demo_url?: string | null
+          description?: string | null
+          featured?: boolean | null
+          forks_count?: number | null
+          full_name?: string
+          github_id?: number
+          homepage?: string | null
+          html_url?: string
+          id?: string
+          language?: string | null
+          name?: string
+          pushed_at?: string | null
+          stargazers_count?: number | null
+          tech_stack?: string[] | null
+          topics?: string[] | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
