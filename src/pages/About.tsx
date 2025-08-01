@@ -6,25 +6,25 @@ export default function About() {
     {
       category: "Frontend",
       icon: Globe,
-      technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Vue.js", "JavaScript (ES6+)"],
+      technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "JavaScript (ES6+)"],
       color: "text-blue-500"
     },
     {
       category: "Backend",
       icon: Server,
-      technologies: ["Flask", "Python", "Node.js", "Express", "REST APIs", "GraphQL"],
+      technologies: ["Flask", "Python","Express", "REST APIs", "PostgresQL"],
       color: "text-green-500"
     },
     {
       category: "Database",
       icon: Database,
-      technologies: ["PostgreSQL", "MongoDB", "Redis", "SQLite", "Prisma", "SQL"],
+      technologies: ["PostgreSQL",  "SQLite","SQL"],
       color: "text-purple-500"
     },
     {
       category: "DevOps & Tools",
       icon: Code,
-      technologies: ["Docker", "AWS", "Git", "GitHub Actions", "Linux", "Nginx"],
+      technologies: ["Docker","Git", "GitHub Actions", "Linux", "CI/CD"],
       color: "text-orange-500"
     }
   ];

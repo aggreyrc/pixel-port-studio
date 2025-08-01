@@ -17,9 +17,9 @@ export default function Home() {
           <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-scale">
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Hi, I'm{" "}
+              Hi, I'm{"  "}
               <span className="bg-gradient-to-r from-accent to-primary-glow bg-clip-text text-transparent">
-                Your Name
+                AGGREY KIBET
               </span>
             </h1>
             
@@ -51,7 +51,7 @@ export default function Home() {
             {/* Social Links */}
             <div className="flex justify-center space-x-6">
               <a 
-                href="https://github.com" 
+                href="https://github.com/aggreyrc" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-accent transition-smooth hover-lift"
@@ -59,7 +59,7 @@ export default function Home() {
                 <Github className="h-6 w-6" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/aggrey-kibet/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-accent transition-smooth hover-lift"
@@ -67,7 +67,7 @@ export default function Home() {
                 <Linkedin className="h-6 w-6" />
               </a>
               <a 
-                href="mailto:your.email@example.com"
+                href="mailto:aggreyronoh@gmail.com" 
                 className="text-white/60 hover:text-accent transition-smooth hover-lift"
               >
                 <Mail className="h-6 w-6" />
@@ -121,7 +121,7 @@ export default function Home() {
                   <div className="w-8 h-8 bg-accent rounded-full"></div>
                 </div>
                 <h3 className="text-xl font-semibold">DevOps</h3>
-                <p className="text-muted-foreground">Docker, AWS, CI/CD</p>
+                <p className="text-muted-foreground">Docker, CI/CD</p>
               </div>
             </div>
           </div>

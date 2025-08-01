@@ -10,9 +10,9 @@ export default function Projects() {
       title: "E-Commerce Platform",
       description: "A full-stack e-commerce solution with React frontend, Flask backend, and PostgreSQL database. Features include user authentication, shopping cart, payment integration, and admin dashboard.",
       image: "/api/placeholder/600/400",
-      technologies: ["React", "Flask", "PostgreSQL", "Stripe", "Docker"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/username/ecommerce",
+      technologies: ["React", "Flask", "PostgreSQL", "Paystack", "Docker"],
+      liveUrl: "https://techhub-wheat.vercel.app/",
+      githubUrl: "https://github.com/aggreyrc/online-electron-hub",
       featured: true
     },
     {
