@@ -14,6 +14,7 @@ export const Navigation = () => {
     { path: "/projects", label: "Projects" },
     { path: "/blog", label: "Blog" },
     { path: "/contact", label: "Contact" },
+    { path: "/admin", label: "Admin" },
   ];
 
   const isActive = (path: string) => {
