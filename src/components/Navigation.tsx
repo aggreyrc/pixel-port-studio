@@ -16,7 +16,7 @@ export const Navigation = () => {
     { path: "/projects", label: "Projects" },
     { path: "/blog", label: "Blog" },
     { path: "/contact", label: "Contact" },
-    ...(user ? [{ path: "/admin", label: "Admin" }] : []),
+    ...(user && user.email === "aggreyronoh@gmail.com" ? [{ path: "/admin", label: "Admin" }] : []),
   ];
 
   const isActive = (path: string) => {

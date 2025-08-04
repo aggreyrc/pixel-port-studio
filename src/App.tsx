@@ -38,7 +38,7 @@ const App = () => (
                 <Route 
                   path="/admin" 
                   element={
-                    <ProtectedRoute>
+                    <ProtectedRoute requiredEmail="aggreyronoh@gmail.com">
                       <Admin />
                     </ProtectedRoute>
                   } 

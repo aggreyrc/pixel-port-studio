@@ -42,7 +42,7 @@ const Admin = () => {
         name: data.name,
         full_name: data.name,
         description: data.description,
-        html_url: data.github_url,
+        github_url: data.github_url,
         demo_url: data.demo_url || null,
         homepage: data.homepage || null,
         language: data.language || null,
@@ -68,9 +68,23 @@ const Admin = () => {
       reset();
     } catch (error) {
       console.error('Error adding project:', error);
+      let errorMessage = "Failed to add project. Please try again.";
+      if (error && typeof error === 'object') {
+        if ('message' in error && typeof error.message === 'string') {
+          errorMessage = error.message;
+        } else {
+          try {
+            errorMessage = JSON.stringify(error);
+          } catch {
+            errorMessage = String(error);
+          }
+        }
+      } else if (typeof error === 'string') {
+        errorMessage = error;
+      }
       toast({
         title: "Error",
-        description: "Failed to add project. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
