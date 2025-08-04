@@ -188,7 +188,7 @@ export default function Projects() {
                         {project.description || 'No description available'}
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {project.tech_stack.map((tech) => (
+                        {(project.tech_stack || []).map((tech) => (
                           <Badge key={tech} variant="secondary" className="text-xs">
                             {tech}
                           </Badge>
@@ -255,18 +255,18 @@ export default function Projects() {
                       <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                         {project.description || 'No description available'}
                       </p>
-                      <div className="flex flex-wrap gap-1 mb-4">
-                        {project.tech_stack.slice(0, 3).map((tech) => (
-                          <Badge key={tech} variant="secondary" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                        {project.tech_stack.length > 3 && (
-                          <Badge variant="secondary" className="text-xs">
-                            +{project.tech_stack.length - 3}
-                          </Badge>
-                        )}
-                      </div>
+                       <div className="flex flex-wrap gap-1 mb-4">
+                         {(project.tech_stack || []).slice(0, 3).map((tech) => (
+                           <Badge key={tech} variant="secondary" className="text-xs">
+                             {tech}
+                           </Badge>
+                         ))}
+                         {(project.tech_stack || []).length > 3 && (
+                           <Badge variant="secondary" className="text-xs">
+                             +{(project.tech_stack || []).length - 3}
+                           </Badge>
+                         )}
+                       </div>
                       <div className="flex space-x-2">
                         {project.demo_url ? (
                           <Button 
