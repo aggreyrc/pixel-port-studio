@@ -13,8 +13,14 @@ export default function Projects() {
   const [showSync, setShowSync] = useState(false);
   const { toast } = useToast();
 
+  console.log('Projects data:', projects);
+  console.log('Projects length:', projects.length);
+
   const featuredProjects = projects.filter(project => project.featured);
   const otherProjects = projects.filter(project => !project.featured);
+
+  console.log('Featured projects:', featuredProjects.length);
+  console.log('Other projects:', otherProjects.length);
 
   const handleSyncComplete = () => {
     setShowSync(false);
