@@ -15,6 +15,7 @@ interface GitHubRepo {
   created_at: string;
   updated_at: string;
   pushed_at: string | null;
+  fork: boolean;
 }
 
 export const useGitHubSync = () => {
@@ -37,10 +38,8 @@ export const useGitHubSync = () => {
 
       // Filter out forks and select interesting repositories
       const filteredRepos = repos.filter(repo => 
-        !repo.name.startsWith(repo.full_name.split('/')[0]) && // Not a fork
-        repo.description && // Has description
-        repo.language && // Has primary language
-        repo.stargazers_count >= 0 // Include all for now
+        !repo.fork && // Not a fork
+        repo.language // Has primary language
       );
 
       // Insert or update projects in Supabase

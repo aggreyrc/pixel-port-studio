@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
+import { useAuth } from "@/hooks/useAuth";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut } = useAuth();
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -14,6 +16,7 @@ export const Navigation = () => {
     { path: "/projects", label: "Projects" },
     { path: "/blog", label: "Blog" },
     { path: "/contact", label: "Contact" },
+    ...(user ? [{ path: "/admin", label: "Admin" }] : []),
   ];
 
   const isActive = (path: string) => {
@@ -50,6 +53,21 @@ export const Navigation = () => {
                 )}
               </Link>
             ))}
+            {user ? (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={signOut}
+                className="flex items-center gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                Sign Out
+              </Button>
+            ) : (
+              <Button asChild variant="outline" size="sm">
+                <Link to="/auth">Sign In</Link>
+              </Button>
+            )}
             <ThemeToggle />
           </div>
 
@@ -85,6 +103,24 @@ export const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
+              {user ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setIsOpen(false);
+                    signOut();
+                  }}
+                  className="mx-3 mb-2 flex items-center gap-2"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Sign Out
+                </Button>
+              ) : (
+                <Button asChild variant="outline" size="sm" className="mx-3 mb-2">
+                  <Link to="/auth" onClick={() => setIsOpen(false)}>Sign In</Link>
+                </Button>
+              )}
             </div>
           </div>
         )}
