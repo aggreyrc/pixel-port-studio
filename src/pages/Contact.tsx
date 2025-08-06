@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -28,23 +29,25 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Here you would typically send the data to your Flask backend
-      console.log("Form submitted:", formData);
-      
+      const { name, email, message } = formData;
+      const { error } = await supabase
+        .from('messages')
+        .insert([{ name, email, message }]);
+      if (error) throw error;
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
-      
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      let errorMessage = "Failed to send message. Please try again.";
+      if (error && typeof error === 'object' && 'message' in error) {
+        errorMessage = error.message;
+      }
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
@@ -97,7 +100,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
-                      <p className="text-muted-foreground">your.email@example.com</p>
+                      <p className="text-muted-foreground">aggreyronoh@gmail.com</p>
                     </div>
                   </div>
 
@@ -107,7 +110,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Phone</h3>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                      <p className="text-muted-foreground">+254 702260364</p>
                     </div>
                   </div>
 
@@ -117,7 +120,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Location</h3>
-                      <p className="text-muted-foreground">San Francisco, CA</p>
+                      <p className="text-muted-foreground">Nairobi,KE</p>
                     </div>
                   </div>
                 </div>
@@ -127,7 +130,7 @@ export default function Contact() {
                   <h3 className="font-semibold text-foreground mb-4">Connect with me</h3>
                   <div className="flex space-x-4">
                     <a 
-                      href="https://github.com" 
+                      href="https://github.com/aggreyrc" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-secondary hover:bg-accent/10 rounded-lg flex items-center justify-center transition-smooth hover-lift group"
@@ -135,7 +138,7 @@ export default function Contact() {
                       <Github className="h-5 w-5 text-muted-foreground group-hover:text-accent" />
                     </a>
                     <a 
-                      href="https://linkedin.com" 
+                      href="https://linkedin.com/in/aggrey-kibet/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-secondary hover:bg-accent/10 rounded-lg flex items-center justify-center transition-smooth hover-lift group"

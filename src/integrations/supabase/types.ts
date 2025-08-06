@@ -24,7 +24,7 @@ export type Database = {
           full_name: string
           github_id: number
           homepage: string | null
-          html_url: string
+          github_url: string
           id: string
           language: string | null
           name: string
@@ -43,7 +43,7 @@ export type Database = {
           full_name: string
           github_id: number
           homepage?: string | null
-          html_url: string
+          github_url: string
           id?: string
           language?: string | null
           name: string
@@ -62,7 +62,7 @@ export type Database = {
           full_name?: string
           github_id?: number
           homepage?: string | null
-          html_url?: string
+          github_url?: string
           id?: string
           language?: string | null
           name?: string

@@ -49,7 +49,7 @@ export const useGitHubSync = () => {
           name: repo.name,
           full_name: repo.full_name,
           description: repo.description,
-          html_url: repo.html_url,
+          github_url: repo.html_url,
           homepage: repo.homepage,
           language: repo.language,
           topics: repo.topics || [],

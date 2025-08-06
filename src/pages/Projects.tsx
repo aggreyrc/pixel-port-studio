@@ -4,13 +4,11 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useProjects } from "@/hooks/useProjects";
-import { GitHubSync } from "@/components/GitHubSync";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Projects() {
   const { projects, loading, error, refetch } = useProjects();
-  const [showSync, setShowSync] = useState(false);
   const { toast } = useToast();
 
   console.log('Projects data:', projects);
@@ -22,11 +20,7 @@ export default function Projects() {
   console.log('Featured projects:', featuredProjects.length);
   console.log('Other projects:', otherProjects.length);
 
-  const handleSyncComplete = () => {
-    setShowSync(false);
-    refetch();
-  };
-
+  
   if (loading) {
     return (
       <div className="min-h-screen pt-20">
@@ -103,14 +97,6 @@ export default function Projects() {
               </p>
 
               <div className="flex gap-3">
-                <Button 
-                  onClick={() => setShowSync(true)}
-                  variant="outline"
-                  className="border-accent/20 hover:bg-accent/10"
-                >
-                  <Plus className="h-4 w-4 mr-2" />
-                  Sync GitHub Projects
-                </Button>
                 <Button onClick={refetch} variant="outline">
                   <RefreshCw className="h-4 w-4 mr-2" />
                   Refresh
@@ -121,23 +107,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Sync Dialog */}
-      {showSync && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="relative">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="absolute -top-2 -right-2 z-10"
-              onClick={() => setShowSync(false)}
-            >
-              ×
-            </Button>
-            <GitHubSync onSyncComplete={handleSyncComplete} />
-          </div>
-        </div>
-      )}
-
+      
       {/* Featured Projects */}
       {featuredProjects.length > 0 && (
         <section className="py-20">
@@ -176,7 +146,7 @@ export default function Projects() {
                               size="sm" 
                               variant="outline" 
                               className="border-white/20 text-white hover:bg-white/10"
-                              onClick={() => window.open(project.html_url, '_blank')}
+                              onClick={() => window.open(project.github_url, '_blank')}
                             >
                               <Github className="h-4 w-4 mr-2" />
                               Code
@@ -223,7 +193,7 @@ export default function Projects() {
                           size="sm" 
                           variant="outline" 
                           className="flex-1"
-                          onClick={() => window.open(project.html_url, '_blank')}
+                          onClick={() => window.open(project.github_url, '_blank')}
                         >
                           <Github className="h-4 w-4 mr-2" />
                           View Code
@@ -294,7 +264,7 @@ export default function Projects() {
                           size="sm" 
                           variant="outline" 
                           className="text-xs flex-1"
-                          onClick={() => window.open(project.html_url, '_blank')}
+                          onClick={() => window.open(project.github_url, '_blank')}
                         >
                           <Github className="h-3 w-3 mr-1" />
                           Code
@@ -319,12 +289,8 @@ export default function Projects() {
               </div>
               <h2 className="text-2xl font-bold text-foreground">No Projects Yet</h2>
               <p className="text-muted-foreground">
-                Get started by syncing your GitHub repositories to showcase your work.
+                No projects to display at the moment.
               </p>
-              <Button onClick={() => setShowSync(true)} className="bg-accent hover:bg-accent/90">
-                <Plus className="h-4 w-4 mr-2" />
-                Sync GitHub Projects
-              </Button>
             </div>
           </div>
         </section>

@@ -7,7 +7,7 @@ export interface Project {
   name: string;
   full_name: string;
   description: string | null;
-  html_url: string;
+  github_url: string;
   homepage: string | null;
   language: string | null;
   topics: string[];
