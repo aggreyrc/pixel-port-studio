@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# Pixel Port Studio
 
-## Project info
+Pixel Port Studio is a personal portfolio web application designed to showcase my projects, skills, and contact information. Built with React and TypeScript, it provides a modern, responsive interface  to present my work online.
 
-**URL**: https://lovable.dev/projects/be2a6bb2-d326-429b-956e-6e74fdf0e0ec
+## Features
+- Home, About, Projects, and Contact pages
+- Clean, responsive design
+- Easy to customize and extend
 
-## How can I edit this code?
+## Getting Started
 
-There are several ways of editing your application.
+### Prerequisites
+- Node.js (v14 or higher recommended)
+- npm or yarn
 
-**Use Lovable**
+### Installation
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd "lovable porfolio/pixel-port-studio"
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/be2a6bb2-d326-429b-956e-6e74fdf0e0ec) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+### Running the Development Server
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm start
+# or
+yarn start
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:3000` by default.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
+```
+public/           # Static assets (favicon, images, etc.)
+src/
+  pages/          # Main page components (Home, About, Projects, Contact, Admin)
+  ...             # Other source files
+index.html        # Main HTML file
+```
 
-**Use GitHub Codespaces**
+## Customization
+- Update content in the `src/pages/` directory to personalize your portfolio.
+- Add images and assets to the `public/` directory as needed.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/be2a6bb2-d326-429b-956e-6e74fdf0e0ec) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## License
+This project is open source and available under the [MIT License](LICENSE).
